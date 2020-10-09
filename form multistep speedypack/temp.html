@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <script src="https://kit.fontawesome.com/309d27a60a.js" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="shipping-form.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="shipping-form.js"></script>
+</head>
+<body>
+  <form class="" action="index.html" method="post">
+    <div class="step step-1">
+      <input type="number" name="dep-cap" value="" placeholder="CAP di partenza (es: 00182)" required>
+      <input type="number" name="arr-cap" value="" placeholder="CAP di destinazione (es: 00182)" required>
+      <div class="step-footer">
+        <button type="button" onClick="goToStep(2)" name="next">Avanti <i class="fas fa-arrow-right"></i></button>
+      </div>
+    </div>
+    <div class="step step-2 inactive-step">
+      <input type="number" name="height" value="" placeholder="Altezza del pacco in cm (es: 80)" required>
+      <input type="number" name="width" value="" placeholder="Larghezza del pacco in cm (es: 80)" required>
+      <input type="number" name="deepth" value="" placeholder="Profondità del pacco in cm (es: 80)" required>
+      <input type="number" name="weight" value="" placeholder="Peso del pacco in kg (es: 2 o 0.5)" required>
+      <div class="step-footer">
+        <button type="button" onClick="goToStep(1)" name="prev"><i class="fas fa-arrow-left"></i> Indietro</button>
+        <button type="button" onClick="goToStep(3)" name="next">Avanti <i class="fas fa-arrow-right"></i></button>
+      </div>
+    </div>
+    <div class="step step-3 inactive-step">
+      <span class="box-conformity-span" onClick="setBoxConformity('regular')">
+        <p>Il pacco presenta superfici regolari (può essere impilato)</p>
+      </span>
+      <span class="box-conformity-span" onClick="setBoxConformity('irregular')">
+        <p>Il pacco presenta superfici irregolari (non può essere impilato)</p>
+      </span>
+      <input type="hidden" name="box-conformity" value="">
+      <div class="step-footer">
+        <button type="button" onClick="goToStep(2)" name="prev"><i class="fas fa-arrow-left"></i> Indietro</button>
+        <button type="button" onClick="goToStep(4)" name="next">Avanti <i class="fas fa-arrow-right"></i></button>
+      </div>
+    </div>
+    <div class="step step-4 inactive-step">
+      <span class="box-assurance-span" onClick="setBoxAssurance('no')">
+        <p>Non voglio applicare alcuna assicurazione alla spedizione</p>
+      </span>
+      <span class="box-assurance-span" onClick="setBoxAssurance('small')">
+        <p>Voglio assicurare la spedizione fino a 1000€</p>
+      </span>
+      <span class="box-assurance-span" onClick="setBoxAssurance('medium')">
+        <p>Voglio assicurare la spedizione fino a 2000€</p>
+      </span>
+      <span class="box-assurance-span" onClick="setBoxAssurance('large')">
+        <p>Voglio assicurare la spedizione fino a 3500€</p>
+      </span>
+      <input type="hidden" name="box-assurance" value="">
+      <div class="step-footer">
+        <button type="button" onClick="goToStep(3)" name="prev"><i class="fas fa-arrow-left"></i> Indietro</button>
+        <button type="button" onClick="goToStep(5)" name="next">Calcola preventivo <i class="fas fa-calculator"></i></button>
+      </div>
+    </div>
+    <div class="step step-5 inactive-step">
+      <h4>Il costo della tua spedizione è di <span class="expedition-price"></span><h4>
+      <input type="hidden" name="expedition-price" value="">
+      <h6>Riepilogo spedizione</h6>
+      <p>Da <span class="recap-dep-cap"></span> a <span class="recap-arr-cap"></span></p><br>
+      <p>Pacco (<span class="recap-dimension"></span> cm) del peso di <span class="recap-weight"></span> kg e di forma <span class="recap-conformity"></span></p><br>
+      <p>Assicuraione: <span class="recap-assurance"></span></p><br>
+      <div class="step-footer">
+        <button type="button" onClick="goToStep(4)" name="prev"><i class="fas fa-arrow-left"></i> Indietro</button>
+        <input type="submit" name="next" value="Ok, spedisci">
+      </div>
+    </div>
+  </form>
+
+</body>
+</html>

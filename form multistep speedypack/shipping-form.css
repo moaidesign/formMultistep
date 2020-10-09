@@ -1,0 +1,30 @@
+.step {
+  width: 70%;
+  margin: auto;
+  padding: 50px;
+  background-color: white;
+  box-shadow: 1px 1px 20px #1f1f1f;
+}
+.step p {
+  font-size: 15px;
+}
+.step .box-assurance-span {
+  width: 18.5%;
+  height: 200px;
+  margin: 5px;
+  padding: 20px;
+  float: left;
+  cursor: pointer;
+  border: solid 1px black;
+  text-align: center;
+}
+/**
+ * Dont remove
+ * @used in shipping-form.js
+ */
+.inactive-step {
+  display: none;
+}
+.current-step {
+  display: block;
+}
